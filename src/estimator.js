@@ -1,5 +1,6 @@
 const covid19ImpactEstimator = data => {
   const {
+    region,
     reportedCases,
     periodType,
     timeToElapse,
@@ -43,6 +44,33 @@ const covid19ImpactEstimator = data => {
     Math.floor(totalHospitalBeds * 0.35) -
     severeImpact.severeCasesByRequestedTime;
 
+  // CHALLENGE 3
+  impact.casesForICUByRequestedTime = Math.floor(
+    impact.infectionsByRequestedtime * 0.05
+  );
+  severeImpact.casesForICUByRequestedTime = Math.floor(
+    severeImpact.infectionsByRequestedtime * 0.05
+  );
+
+  impact.casesForVentilatorsByRequestedTime = Math.floor(
+    impact.infectionsByRequestedtime * 0.02
+  );
+  severeImpact.casesForVentilatorsByRequestedTime = Math.floor(
+    impact.infectionsByRequestedtime * 0.02
+  );
+
+  impact.dollarsInFlight = Math.floor(
+    impact.infectionsByRequestedtime *
+    region.avgDailyIncomePopulation *
+    region.avgDailyIncomeInUSD *
+    getDuration
+  );
+  severeImpact.dollarsInFlight = Math.floor(
+    severeImpact.infectionsByRequestedtime *
+    region.avgDailyIncomePopulation *
+    region.avgDailyIncomeInUSD *
+    getDuration
+  );
   return {
     data,
     impact,
