@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="index, follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description"
+    content="A covid-19 web app that estimates the impact and severe impact of covid-19 in various geo-locations.">
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/Normalize.css">
+  <title>covid-19-estimator | An estimator for covid-19 impact</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <h1>covid-Stats-Projector</h1>
+    </nav>
+  </header>
+  <main>
+    <section class="form-container">
+      <aside>
+        <h4>Kindly enter your input data.</h4>
+
+      </aside>
+      <section>
+        <form action="/" method="post">
+          <fieldset>
+            <label for="">Population</label>
+            <input type="text" data-populaton="" name="" id="">
+          </fieldset>
+          <fieldset>
+            <label for="">Time to Elapse</label>
+            <input type="text" data-time-to-elapse="" name="" id="">
+          </fieldset>
+          <fieldset>
+            <label for="">Reported Cases</label>
+            <input type="text" data-reported-cases="" name="" id="">
+          </fieldset>
+          <fieldset>
+            <label for="">Total Hospital Beds</label>
+            <input type="text" data-total-hospital-beds="" name="" id="">
+          </fieldset>
+          <fieldset>
+            <label for="">Period Type</label>
+            <select name="period-type" id="period-type">
+              <option value="days">Days</option>
+              <option value="days">Weeks</option>
+              <option value="days">Months</option>
+            </select>
+          </fieldset>
+          <input type="submit" data-go-estimate>
+        </form>
+      </section>
+    </section>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+body {
+  min-height: 100vh;
+}
+
+fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  line-height: 2.0;
+}
+
+main {
+  /* width: 100%; */
+  margin: auto;
+}
