@@ -28,20 +28,23 @@
       <section>
         <form action="/" method="post">
           <fieldset>
-            <label for="">Population</label>
-            <input type="number" data-populaton name="" id="">
+            <label for="population">Population</label>
+            <input type="number" data-population name="population" id="population" pattern="[^\-]+" min="1" onpaste="return false" required>
           </fieldset>
           <fieldset>
-            <label for="">Time to Elapse</label>
-            <input type="number" data-time-to-elapse name="time-to-elapse" id="time-to-elapse">
+            <label for="time-to-elapse">Time to Elapse</label>
+            <input type="number" data-time-to-elapse name="time-to-elapse" id="time-to-elapse" pattern="[^\-]+" min="1"
+              onpaste="return false" required>
           </fieldset>
           <fieldset>
-            <label for="">Reported Cases</label>
-            <input type="number" data-reported-cases name="reported-cases" id="reported-cases">
+            <label for="reported-cases">Reported Cases</label>
+            <input type="number" data-reported-cases name="reported-cases" id="reported-cases" pattern="[^\-]+" min="1"
+              onpaste="return false" required>
           </fieldset>
           <fieldset>
-            <label for="">Total Hospital Beds</label>
-            <input type="number" data-total-hospital-beds name="total-hospital-beds" id="total-hospital-beds">
+            <label for="total-hospital-beds">Total Hospital Beds</label>
+            <input type="number" data-total-hospital-beds name="total-hospital-beds" id="total-hospital-beds"
+              pattern="[^\-]+" min="1" onpaste="return false" required>
           </fieldset>
           <fieldset>
             <label for="period-type">Period Type</label>

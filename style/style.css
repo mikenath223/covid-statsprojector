@@ -77,6 +77,13 @@ form fieldset {
   line-height: 2.2;
 }
 
+fieldset select {
+  color: #000;
+  font-weight: 700;
+  border-radius: 10px;
+  background-color: rgb(225, 245, 238);
+}
+
 .form-container label {
   color: #fff;
 }
