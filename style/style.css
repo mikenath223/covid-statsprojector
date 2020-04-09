@@ -4,6 +4,7 @@ body {
   color: rgb(115, 119, 133);
   font-size: 18px;
   font-family: 'Poppins';
+  min-height: 100vh;
 }
 
 header {
@@ -28,13 +29,12 @@ nav h1 {
 
 main {
   height: 100%;
-  margin: 100px auto 0 auto;
+  margin: 100px auto 40px auto;
 }
 
 aside {
   border-right: 1px solid silver;
   width: 45%;
-  margin: auto;
 }
 
 aside h1 {
@@ -102,7 +102,7 @@ form {
 
 @media (max-width: 768px) {
   body {
-    height: 100vh;
+    min-height: 100vh;
   }
   header nav {
   font-size: 12px;
@@ -133,5 +133,9 @@ form {
   }
   aside {
     width: 100%;
+  }
+  header {
+    padding-top: 15px;
+    padding-left: 20px;
   }
 }
