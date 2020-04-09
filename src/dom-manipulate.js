@@ -15,9 +15,9 @@ const toggleForms = () => {
 $('.step-but').click(() => {
   const rgnVals = {
     name: selectQuery('select[data-name]'),
+    avgAge: selectQuery('input[data-avgAge]'),
     avgDailyIncomeInUSD: selectQuery('input[data-avgDailyIncomeInUSD]'),
     avgDailyIncomePopulation: selectQuery('input[data-avgDailyIncomePopulation]'),
-    avgAge: selectQuery('input[data-average-age]')
   };
   let chkRgnVals = !!rgnVals.name.value && !!rgnVals.avgAge.value && !!rgnVals.avgDailyIncomeInUSD.value && !!rgnVals.avgDailyIncomePopulation.value
   if (chkRgnVals) {
@@ -37,9 +37,16 @@ $('form').submit(() => {
   const data = {
     region: {
       name: selectQuery('select[data-name]').dataset.name,
-      avgAge: 
-    }
+      avgAge: selectQuery('input[data-avgAge]').dataset.avgAge,
+      avgDailyIncomeInUSD: selectQuery('input[data-avgDailyIncomeInUSD]').dataset.avgDailyIncomeInUSD,
+      avgDailyIncomePopulation: selectQuery('input[data-avgDailyIncomePopulation]').dataset.avgDailyIncomePopulation
+    },
+    periodType: selectQuery('input[data-avgAge]').value,
+    timeToElapse: selectQuery('input[data-timeToElapse]').value,
+    reportedCases: selectQuery('input[data-reportedCases]').value,
+    population: selectQuery('input[data-population]').value,
+    totalHospitalBeds: selectQuery('input[data-totalHospitalBeds]').value
   }
 
-// covid19ImpactEstimator
+  covid19ImpactEstimator(data);
 })
