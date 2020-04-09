@@ -23,38 +23,68 @@
     <section class="form-container">
       <aside>
         <h1>Welcome</h1>
-        <h4>Kindly enter your input data.</h4>
+        <h4>Kindly input your data.</h4>
       </aside>
       <section>
+        <div class="steps-shift">
+          <li></li>
+          <li></li>
+        </div>
         <form action="/" method="post">
-          <fieldset>
-            <label for="population">Population</label>
-            <input type="number" data-population name="population" id="population" pattern="[^\-]+" min="1" onpaste="return false" required>
-          </fieldset>
-          <fieldset>
-            <label for="time-to-elapse">Time to Elapse</label>
-            <input type="number" data-time-to-elapse name="time-to-elapse" id="time-to-elapse" pattern="[^\-]+" min="1"
-              onpaste="return false" required>
-          </fieldset>
-          <fieldset>
-            <label for="reported-cases">Reported Cases</label>
-            <input type="number" data-reported-cases name="reported-cases" id="reported-cases" pattern="[^\-]+" min="1"
-              onpaste="return false" required>
-          </fieldset>
-          <fieldset>
-            <label for="total-hospital-beds">Total Hospital Beds</label>
-            <input type="number" data-total-hospital-beds name="total-hospital-beds" id="total-hospital-beds"
-              pattern="[^\-]+" min="1" onpaste="return false" required>
-          </fieldset>
-          <fieldset>
-            <label for="period-type">Period Type</label>
-            <select name="period-type" id="period-type" data-period-type>
-              <option value="days">Days</option>
-              <option value="days">Weeks</option>
-              <option value="days">Months</option>
-            </select>
-          </fieldset>
-          <input type="submit" value="SUBMIT" data-go-estimate>
+
+          <div class="region-data">
+            <fieldset>
+              <label for="name">Region Name</label>
+              <input type="text" data-region-name name="name" id="name" required placeholder="Eg: Africa">
+            </fieldset>
+            <fieldset>
+              <label for="avgAge">Average Age</label>
+              <input type="number" data-average-age name="avgAge" id="avgAge" pattern="[^\-]+"
+              min="1" onpaste="return false" required placeholder="Eg: 19.7">
+            </fieldset>
+            <fieldset>
+              <label for="avgDailyIncomeInUSD">Average Daily Income In USD</label>
+              <input type="number" data-reported-cases name="avgDailyIncomeInUSD" id="avgDailyIncomeInUSD" required placeholder="Eg: 5">
+            </fieldset>
+            <fieldset>
+              <label for="avgDailyIncomePopulation">Average daily income population</label>
+              <input type="number" data-avg-daily-income-population name="avgDailyIncomePopulation" id="avgDailyIncomePopulation"
+                pattern="[^\-]+" min="1" onpaste="return false" required placeholder="Eg: 0.71">
+            </fieldset>
+            <button type="submit" class="step-but">Next</button>
+          </div>
+
+          <div class="cases-data">
+            <fieldset>
+              <label for="population">Population</label>
+              <input type="number" data-population name="population" id="population" pattern="[^\-]+" min="1"
+                onpaste="return false" required>
+            </fieldset>
+            <fieldset>
+              <label for="time-to-elapse">Time to Elapse</label>
+              <input type="number" data-time-to-elapse name="time-to-elapse" id="time-to-elapse" pattern="[^\-]+"
+                min="1" onpaste="return false" required>
+            </fieldset>
+            <fieldset>
+              <label for="reported-cases">Reported Cases</label>
+              <input type="number" data-reported-cases name="reported-cases" id="reported-cases" pattern="[^\-]+"
+                min="1" onpaste="return false" required>
+            </fieldset>
+            <fieldset>
+              <label for="total-hospital-beds">Total Hospital Beds</label>
+              <input type="number" data-total-hospital-beds name="total-hospital-beds" id="total-hospital-beds"
+                pattern="[^\-]+" min="1" onpaste="return false" required>
+            </fieldset>
+            <fieldset>
+              <label for="period-type">Period Type</label>
+              <select name="period-type" id="period-type" data-period-type>
+                <option value="days">Days</option>
+                <option value="days">Weeks</option>
+                <option value="days">Months</option>
+              </select>
+            </fieldset>
+            <input type="submit" value="SUBMIT" data-go-estimate>
+          </div>
         </form>
       </section>
     </section>

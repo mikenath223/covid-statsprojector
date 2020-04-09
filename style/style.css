@@ -5,6 +5,7 @@ body {
   font-size: 18px;
   font-family: 'Poppins';
   min-height: 100vh;
+  word-spacing: 2px;
 }
 
 header {
@@ -74,7 +75,11 @@ form fieldset {
   border: none;
   display: flex;
   flex-direction: column;
-  line-height: 2.2;
+  margin-bottom: 10px;
+}
+
+input::placeholder {
+  font-style: italic;
 }
 
 fieldset select {
@@ -94,7 +99,7 @@ fieldset select {
   border-radius: 10px;
 }
 
-.form-container input[data-go-estimate] {
+.form-container input[data-go-estimate], .step-but {
   background-color: #D76916;
   border: none;
   width: 160px;
@@ -104,6 +109,33 @@ fieldset select {
   display: block;
   font-weight: 700;
   font-size: 23px;
+}
+
+.cases-data {
+  display: none;
+}
+
+.step-but {
+  color: #fff;
+  background-color: #007BFF;
+}
+
+.steps-shift {
+  display: flex;
+  justify-content: space-around;
+}
+
+.steps-shift li {
+  font-size: 35px;
+}
+
+.steps-shift li:first-child {
+  color: #007BFF;
+}
+
+.steps-shift li::after {
+  content: '';
+
 }
 
 @media (max-width: 768px) {
