@@ -27,31 +27,42 @@
       </aside>
       <section>
         <div class="steps-shift">
-          <li></li>
-          <li></li>
+          <button class="multisteps-form__progress-btn js-active" type="button" title="Region Info">Region Info</button>
+          <button class="multisteps-form__progress-btn" type="button" title="Cases Info">Cases Info</button>
         </div>
-        <form action="/" method="post">
 
+        <form action="/" method="post">
           <div class="region-data">
             <fieldset>
               <label for="name">Region Name</label>
-              <input type="text" data-region-name name="name" id="name" required placeholder="Eg: Africa">
-            </fieldset>
-            <fieldset>
-              <label for="avgAge">Average Age</label>
-              <input type="number" data-average-age name="avgAge" id="avgAge" pattern="[^\-]+"
-              min="1" onpaste="return false" required placeholder="Eg: 19.7">
+              <select name="name" id="name" data-name>
+                <option value="Africa">Africa</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="North America">North America</option>
+                <option value="Central America">Central America</option>
+                <option value="South America">South America</option>
+                <option value="Oceania">The Caribbean</option>
+                <option value="Oceania">Oceania</option>
+              </select>
             </fieldset>
             <fieldset>
               <label for="avgDailyIncomeInUSD">Average Daily Income In USD</label>
-              <input type="number" data-reported-cases name="avgDailyIncomeInUSD" id="avgDailyIncomeInUSD" required placeholder="Eg: 5">
+              <input type="number" data-avgDailyIncomeInUSD name="avgDailyIncomeInUSD" id="avgDailyIncomeInUSD"
+              pattern="[^\-]+" min="1" onpaste="return false" required placeholder="Eg: 5">
             </fieldset>
             <fieldset>
               <label for="avgDailyIncomePopulation">Average daily income population</label>
-              <input type="number" data-avg-daily-income-population name="avgDailyIncomePopulation" id="avgDailyIncomePopulation"
-                pattern="[^\-]+" min="1" onpaste="return false" required placeholder="Eg: 0.71">
+              <input type="number" data-avg-daily-income-population name="avgDailyIncomePopulation"
+                id="avgDailyIncomePopulation" pattern="[^\-]+" min="1" onpaste="return false" required
+                placeholder="Eg: 0.71">
             </fieldset>
-            <button type="submit" class="step-but">Next</button>
+            <fieldset>
+              <label for="avgAge">Average Age</label>
+              <input type="number" data-avgAge name="avgAge" id="avgAge" pattern="[\d]{3}" min="1" maxlength="3"
+                max="120" onpaste="return false" required placeholder="Eg: 19.7">
+            </fieldset>
+            <button type="button" class="step-but">Next</button>
           </div>
 
           <div class="cases-data">
@@ -62,22 +73,22 @@
             </fieldset>
             <fieldset>
               <label for="time-to-elapse">Time to Elapse</label>
-              <input type="number" data-time-to-elapse name="time-to-elapse" id="time-to-elapse" pattern="[^\-]+"
+              <input type="number" data-timeToElapse name="time-to-elapse" id="time-to-elapse" pattern="[^\-]+"
                 min="1" onpaste="return false" required>
             </fieldset>
             <fieldset>
               <label for="reported-cases">Reported Cases</label>
-              <input type="number" data-reported-cases name="reported-cases" id="reported-cases" pattern="[^\-]+"
+              <input type="number" data-reportedCases name="reported-cases" id="reported-cases" pattern="[^\-]+"
                 min="1" onpaste="return false" required>
             </fieldset>
             <fieldset>
               <label for="total-hospital-beds">Total Hospital Beds</label>
-              <input type="number" data-total-hospital-beds name="total-hospital-beds" id="total-hospital-beds"
+              <input type="number" data-totalHospitalBeds name="total-hospital-beds" id="total-hospital-beds"
                 pattern="[^\-]+" min="1" onpaste="return false" required>
             </fieldset>
             <fieldset>
               <label for="period-type">Period Type</label>
-              <select name="period-type" id="period-type" data-period-type>
+              <select name="period-type" id="period-type" data-periodType>
                 <option value="days">Days</option>
                 <option value="days">Weeks</option>
                 <option value="days">Months</option>
@@ -89,6 +100,8 @@
       </section>
     </section>
   </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="src/dom-manipulate.js"></script>
 </body>
 
 </html>

@@ -4,7 +4,6 @@ const covid19ImpactEstimator = data => {
     reportedCases,
     periodType,
     timeToElapse,
-    population,
     totalHospitalBeds
   } = data;
 
@@ -92,7 +91,7 @@ let output = covid19ImpactEstimator({
 });
 
 output;
-// export default covid19ImpactEstimator;
+export default covid19ImpactEstimator;
 
 // Input
 // {

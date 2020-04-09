@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+:root {
+  --currentColor: none;
+}
+
 body {
   background-color: #09041B;
   color: rgb(115, 119, 133);
@@ -64,11 +68,14 @@ aside h4 {
 form {
   width: 70%;
   margin: 20px auto;
+  height: 65vh;
+  overflow: hidden;
 }
 
 .form-container section {
   width: 55%;
   margin: auto;
+  overflow: hidden;
 }
 
 form fieldset {
@@ -86,7 +93,13 @@ fieldset select {
   color: #000;
   font-weight: 700;
   border-radius: 10px;
-  background-color: rgb(225, 245, 238);
+  background-color: rgb(84, 134, 209);
+}
+
+fieldset:focus-within {
+  border-radius: 10px;
+  border: 2px solid #D76916;
+  box-shadow: 0px 0px 10px #D76916;
 }
 
 .form-container label {
@@ -112,7 +125,14 @@ fieldset select {
 }
 
 .cases-data {
-  display: none;
+  opacity: 0;
+  position: relative;
+  top: -100%;
+  left: 150%;
+}
+
+.region-data {
+  position: relative;
 }
 
 .step-but {
@@ -123,19 +143,78 @@ fieldset select {
 .steps-shift {
   display: flex;
   justify-content: space-around;
+  position: relative;
+  margin: 25px 0;
 }
 
-.steps-shift li {
-  font-size: 35px;
+.multisteps-form__progress-btn {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  -webkit-transition-timing-function: linear;
+  transition-timing-function: linear;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+  position: relative;
+  padding-top: 20px;
+  color: rgba(108, 117, 125, 0.7);
+  text-indent: -9px;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
 }
 
-.steps-shift li:first-child {
-  color: #007BFF;
-}
-
-.steps-shift li::after {
+.multisteps-form__progress-btn:before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: block;
+  width: 13px;
+  height: 13px;
   content: '';
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  -webkit-transition: all 0.15s linear 0s, -webkit-transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
+  transition: all 0.15s linear 0s, -webkit-transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
+  transition: all 0.15s linear 0s, transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
+  transition: all 0.15s linear 0s, transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s, -webkit-transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  background-color: #fff;
+  z-index: 3;
+}
 
+.multisteps-form__progress-btn:nth-child(2):after {
+  position: absolute;
+  content: '';
+  top: 5px;
+  left: calc(-175% - 13px / 2);
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  -webkit-transition-timing-function: linear;
+  transition-timing-function: linear;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+  display: block;
+  width: 240%;
+  height: 2px;
+  background-color: currentColor;
+  z-index: 1;
+}
+
+.multisteps-form__progress-btn.js-active {
+  color: #007bff;
+}
+
+.multisteps-form__progress-btn.js-active:before {
+  -webkit-transform: translateX(-50%) scale(1.2);
+  transform: translateX(-50%) scale(1.2);
+  background-color: currentColor;
+  content: '';
 }
 
 @media (max-width: 768px) {
@@ -152,6 +231,7 @@ fieldset select {
     width: 400px;
   }
   aside {
+    width: 100%;
     border: none;
   }
   aside h1 {
@@ -172,11 +252,12 @@ fieldset select {
   form fieldset input {
     width: 240px;
   }
-  aside {
-    width: 100%;
-  }
   header {
     padding-top: 15px;
     padding-left: 20px;
+  }
+  .multisteps-form__progress-btn:nth-child(2):after {
+    width: 180%;
+    left: calc(-125% - 13px / 2);
   }
 }
