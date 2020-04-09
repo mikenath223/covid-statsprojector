@@ -16,42 +16,42 @@
 <body>
   <header>
     <nav>
-      <h1>covid-Stats-Projector</h1>
+      <h1>covid-19 Stats Projector</h1>
     </nav>
   </header>
   <main>
     <section class="form-container">
       <aside>
+        <h1>Welcome</h1>
         <h4>Kindly enter your input data.</h4>
-
       </aside>
       <section>
         <form action="/" method="post">
           <fieldset>
             <label for="">Population</label>
-            <input type="text" data-populaton="" name="" id="">
+            <input type="text" data-populaton name="" id="">
           </fieldset>
           <fieldset>
             <label for="">Time to Elapse</label>
-            <input type="text" data-time-to-elapse="" name="" id="">
+            <input type="text" data-time-to-elapse name="time-to-elapse" id="time-to-elapse">
           </fieldset>
           <fieldset>
             <label for="">Reported Cases</label>
-            <input type="text" data-reported-cases="" name="" id="">
+            <input type="text" data-reported-cases name="reported-cases" id="reported-cases">
           </fieldset>
           <fieldset>
             <label for="">Total Hospital Beds</label>
-            <input type="text" data-total-hospital-beds="" name="" id="">
+            <input type="text" data-total-hospital-beds name="total-hospital-beds" id="total-hospital-beds">
           </fieldset>
           <fieldset>
-            <label for="">Period Type</label>
-            <select name="period-type" id="period-type">
+            <label for="period-type">Period Type</label>
+            <select name="period-type" id="period-type" data-period-type>
               <option value="days">Days</option>
               <option value="days">Weeks</option>
               <option value="days">Months</option>
             </select>
           </fieldset>
-          <input type="submit" data-go-estimate>
+          <input type="submit" value="SUBMIT" data-go-estimate>
         </form>
       </section>
     </section>

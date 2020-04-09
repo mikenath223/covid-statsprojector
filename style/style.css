@@ -1,15 +1,137 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 body {
-  min-height: 100vh;
+  background-color: #09041B;
+  color: rgb(115, 119, 133);
+  font-size: 18px;
+  font-family: 'Poppins';
 }
 
-fieldset {
-  border: none;
-  display: flex;
-  flex-direction: column;
-  line-height: 2.0;
+header {
+  position: fixed;
+  top: 0;
+  height: 60px;
+  width: 100%;
+  background-color: rgb(61, 69, 88);
+  padding-left: 50px;
+}
+
+nav {
+  width: max-content;
+}
+
+nav h1 {
+  color: #D76916;
+  margin: 0;
+  font-style: italic;
+  width: max-content;
 }
 
 main {
-  /* width: 100%; */
+  height: 100%;
+  margin: 100px auto 0 auto;
+}
+
+aside {
+  border-right: 1px solid silver;
+  width: 45%;
   margin: auto;
+}
+
+aside h1 {
+  border-radius: 5px;
+  width: max-content;
+  padding: 5px;
+  margin: 60px auto 60px auto;
+  background-color: #1D1E33;
+}
+
+aside h4 {
+  margin: 10px auto;
+  text-align: center;
+  width: 90%;
+}
+
+.form-container {
+  max-width: 700px;
+  min-width: 300px;
+  margin: auto;
+  border: 1px solid orangered;
+  display: flex;
+  flex-direction: row;
+}
+
+form {
+  width: 70%;
+  margin: 20px auto;
+}
+
+.form-container section {
+  width: 55%;
+  margin: auto;
+}
+
+.form-container fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  line-height: 2.2;
+  width: max-content;
+}
+
+.form-container label {
+  color: #fff;
+}
+
+.form-container input {
+  color: #000;
+  padding-left: 5px;
+  border-radius: 10px;
+}
+
+.form-container input[data-go-estimate] {
+  background-color: #D76916;
+  border: none;
+  width: 160px;
+  height: 40px;
+  border-radius: 10px;
+  margin: 30px auto;
+  display: block;
+  font-weight: 700;
+  font-size: 23px;
+}
+
+@media (max-width: 768px) {
+  body {
+    height: 100vh;
+  }
+  header nav {
+  font-size: 12px;
+  }
+  .form-container {
+    flex-direction: column;
+    align-content: space-around;
+    justify-content: center;
+    width: 400px;
+  }
+  aside {
+    border: none;
+  }
+  aside h1 {
+    display: none;
+  }
+  .form-container section {
+    width: 100%;
+  }
+}
+
+@media (max-width: 430px) {
+  .form-container {
+    width: 300px;
+  }
+  form {
+    width: 90%;
+  }
+  aside {
+    width: 100%;
+  }
 }
