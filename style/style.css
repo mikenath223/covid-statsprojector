@@ -70,7 +70,7 @@ form {
   margin: auto;
 }
 
-.form-container fieldset {
+form fieldset {
   border: none;
   display: flex;
   flex-direction: column;
@@ -104,7 +104,7 @@ form {
     min-height: 100vh;
   }
   header nav {
-  font-size: 12px;
+    font-size: 12px;
   }
   .form-container {
     flex-direction: column;
@@ -129,6 +129,9 @@ form {
   }
   form {
     width: 90%;
+  }
+  form fieldset input {
+    width: 240px;
   }
   aside {
     width: 100%;
