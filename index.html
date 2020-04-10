@@ -22,17 +22,13 @@
   <main>
     <section class="form-container">
       <aside>
-        <h1>Welcome</h1>
-        <h4>Kindly input your data.</h4>
-      </aside>
-      <section class="data-display">
-        <div class="results">
+        <div class="data-main-cont">
           <span class="reg">Africa</span>
           <div class="data-container">
             <h3 class="res__hdata">DATA INPUT</h3>
             <div class="reg-cont">
-              <p class="reg-desc">Region Info</p>
-              <p><span>Average Age</span> <span class="avgAge">19.7</span></p>
+              <p class="desc reg-desc">Region Info</p>
+              <p class="marg-top"><span>Average Age</span> <span class="avgAge">19.7</span></p>
               <p><span>Average Daily Income In USD</span> <span class="avgDailyIncomeInUSD">19.7</span></p>
               <p><span>Average Daily Income Population</span> <span class="avgDailyIncomePopulation">19.7</span></p>
             </div>
@@ -42,18 +38,43 @@
             <p><span>Population</span> <span class="population">19.7</span></p>
             <p><span>Total Hospital Beds</span> <span class="totalHospitalBeds">19.7</span></p>
           </div>
+          <hr>
+          <button type="button" class="reload">BACK</button>
+        </div>
+        <h1>Welcome</h1>
+        <h4>Kindly input your data.</h4>
+      </aside>
+      <section class="data-display">
+        <div class="results">
           <div class="result-container">
             <h3 class="res__hresult">RESULTS</h4>
-              <p><span>Period Type</span> <span class="periodType">19.7</span></p>
-              <p><span>Time To Elapse</span> <span class="timeToElapse">19.7</span></p>
-              <p><span>Reported Cases</span> <span class="reportedCases">19.7</span></p>
-              <p><span>Population</span> <span class="population">19.7</span></p>
-              <p><span>Total Hospital Beds</span> <span class="totalHospitalBeds">19.7</span></p>
-  
+              <div class="impact-cont">
+                <p class="desc imp-desc">Impact</p>
+                <p class="marg-top"><span>Currently Infected</span> <span class="currentlyInfected">19.7</span></p>
+                <p><span>Infections By Requested Time</span> <span class="infectionsByRequestedtime">19.7</span></p>
+                <p><span>Severe Cases By Requested Time</span> <span class="severeCasesByRequestedTime">19.7</span></p>
+                <p><span>Hospital Beds By Requested Time</span> <span class="hospitalBedsByRequestedTime">19.7</span>
+                </p>
+                <p><span>Cases For ICU By Requested Time</span> <span class="casesForICUByRequestedTime">19.7</span></p>
+                <p><span>Cases For Ventilators By Requested Time</span> <span
+                    class="casesForVentilatorsByRequestedTime">19.7</span></p>
+                <p><span>Dollars In Flight</span> <span class="dollarsInFlight">19.7</span></p>
+              </div>
+              <div class="severe-impact-cont">
+                <p class="desc sev-imp-desc">Severe Impact</p>
+                <p class="marg-top"><span>Currently Infected</span> <span class="currentlyInfected">19.7</span></p>
+                <p><span>Infections By Requested Time</span> <span class="infectionsByRequestedtime">19.7</span></p>
+                <p><span>Severe Cases By Requested Time</span> <span class="severeCasesByRequestedTime">19.7</span></p>
+                <p><span>Hospital Beds By Requested Time</span> <span class="hospitalBedsByRequestedTime">19.7</span>
+                </p>
+                <p><span>Cases For ICU By Requested Time</span> <span class="casesForICUByRequestedTime">19.7</span></p>
+                <p><span>Cases For Ventilators By Requested Time</span> <span
+                    class="casesForVentilatorsByRequestedTime">19.7</span></p>
+                <p><span>Dollars In Flight</span> <span class="dollarsInFlight">19.7</span></p>
+              </div>
           </div>
-          <h5></h5>
         </div>
-        <!-- <div class="steps-shift">
+        <div class="steps-shift">
           <button class="multisteps-form__progress-btn js-active" type="button" title="Region Info">Region Info</button>
           <button class="multisteps-form__progress-btn" type="button" title="Cases Info">Cases Info</button>
         </div>
@@ -124,11 +145,14 @@
             </fieldset>
             <input type="submit" value="SUBMIT" data-go-estimate>
           </div>
-        </form> -->
+        </form>
       </section>
     </section>
   </main>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+  </script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js">
+  </script>
   <script src="src/dom-manipulate.js" type="module"></script>
 </body>
 
