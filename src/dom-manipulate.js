@@ -92,11 +92,11 @@ $('form').submit((e) => {
         'avgDailyIncomePopulation'
       )
     },
-    periodType: $('select[data-periodType] option:selected').text(),
-    timeToElapse: $('input[data-timeToElapse]').val(),
-    reportedCases: $('input[data-reportedCases]').val(),
+    periodType: $('select[data-period-type] option:selected').text(),
+    timeToElapse: $('input[data-time-to-elapse]').val(),
+    reportedCases: $('input[data-reported-cases]').val(),
     population: $('input[data-population]').val(),
-    totalHospitalBeds: $('input[data-totalHospitalBeds]').val()
+    totalHospitalBeds: $('input[data-total-hospital-beds]').val()
   };
   runEstimator(data);
 });
