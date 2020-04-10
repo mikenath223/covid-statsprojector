@@ -339,14 +339,14 @@ fieldset:focus-within {
     width: 300px;
   }
   form {
-    height: 75vh;
+    height: 85vh;
     width: 90%;
   }
   form fieldset input {
     width: 240px;
   }
   .cases-data {
-    top: 0;
+    top: -90%;
   }
   header {
     padding-top: 15px;
