@@ -90,7 +90,7 @@ let output = covid19ImpactEstimator({
   totalHospitalBeds: 1380614
 });
 
-output;
+console.log(output);
 export default covid19ImpactEstimator;
 
 // Input

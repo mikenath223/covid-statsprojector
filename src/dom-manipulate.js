@@ -1,52 +1,61 @@
-import covid19ImpactEstimator from "./estimator";
+import covid19ImpactEstimator from './estimator.js';
 
-const selectQuery = (query) => document.querySelector(query);
 const toggleForms = () => {
   $('.region-data').animate({
     left: '150%',
-    opacity: '0',
+    opacity: '0'
   });
   $('.cases-data').animate({
     left: '0',
-    opacity: '1',
+    opacity: '1'
   });
-}
+  $(':root').css('--currentColor', '#007bff')
+};
 
 $('.step-but').click(() => {
   const rgnVals = {
-    name: selectQuery('select[data-name]'),
-    avgAge: selectQuery('input[data-avgAge]'),
-    avgDailyIncomeInUSD: selectQuery('input[data-avgDailyIncomeInUSD]'),
-    avgDailyIncomePopulation: selectQuery('input[data-avgDailyIncomePopulation]'),
+    name: $('select[data-name] option:selected'),
+    avgAge: $('input[data-avgAge]'),
+    avgDailyIncomeInUSD: $('input[data-avgDailyIncomeInUSD]'),
+    avgDailyIncomePopulation: $('input[data-avgDailyIncomePopulation]')
   };
-  let chkRgnVals = !!rgnVals.name.value && !!rgnVals.avgAge.value && !!rgnVals.avgDailyIncomeInUSD.value && !!rgnVals.avgDailyIncomePopulation.value
+
+  let chkRgnVals =
+    !!rgnVals.name.text() &&
+    !!rgnVals.avgAge.val() &&
+    !!rgnVals.avgDailyIncomeInUSD.val() &&
+    !!rgnVals.avgDailyIncomePopulation.val();
   if (chkRgnVals) {
-    rgnVals.name.dataset.name = rngVals.name.value;
-    rgnVals.avgDailyIncomeInUSD.dataset.avgDailyIncomeInUSD = rngVals.avgDailyIncomeInUSD.value;
-    rgnVals.name.dataset.avgDailyIncomePopulation = rngVals.avgDailyIncomePopulation.value;
-    rgnVals.avgAge.dataset.avgAge = rngVals.avgAge.value;
+    rgnVals.name.data('name', rgnVals.name.text());
+    rgnVals.avgDailyIncomeInUSD.data('avgDailyIncomeInUSD', rgnVals.avgDailyIncomeInUSD.val());
+    rgnVals.avgDailyIncomePopulation.data('avgDailyIncomePopulation', rgnVals.avgDailyIncomePopulation.val());
+    rgnVals.avgAge.data('avgAge', rgnVals.avgAge.val());
     return toggleForms();
   }
-  const warnElem = selectQuery('aside h4');
-  warnElem.textContent = "Please fill all fields.";
-  warnElem.style.color = "red";
-})
+  const warnElem = $('aside h4');
+  warnElem.text('Please fill all fields.');
+  warnElem.css('color', 'red');
+});
 
-$('form').submit(() => {
-  $(this).preventDefault();
+$('form').submit((e) => {
+  e.preventDefault();
   const data = {
     region: {
-      name: selectQuery('select[data-name]').dataset.name,
-      avgAge: selectQuery('input[data-avgAge]').dataset.avgAge,
-      avgDailyIncomeInUSD: selectQuery('input[data-avgDailyIncomeInUSD]').dataset.avgDailyIncomeInUSD,
-      avgDailyIncomePopulation: selectQuery('input[data-avgDailyIncomePopulation]').dataset.avgDailyIncomePopulation
+      name: $('select[data-name]').data('name'),
+      avgAge: $('input[data-avgAge]').data('avgAge'),
+      avgDailyIncomeInUSD: $('input[data-avgDailyIncomeInUSD]').data(
+        'avgDailyIncomeInUSD'
+      ),
+      avgDailyIncomePopulation: $('input[data-avgDailyIncomePopulation]').data(
+        'avgDailyIncomePopulation'
+      )
     },
-    periodType: selectQuery('input[data-avgAge]').value,
-    timeToElapse: selectQuery('input[data-timeToElapse]').value,
-    reportedCases: selectQuery('input[data-reportedCases]').value,
-    population: selectQuery('input[data-population]').value,
-    totalHospitalBeds: selectQuery('input[data-totalHospitalBeds]').value
-  }
+    periodType: $('input[data-avgAge]').val(),
+    timeToElapse: $('input[data-timeToElapse]').val(),
+    reportedCases: $('input[data-reportedCases]').val(),
+    population: $('input[data-population]').val(),
+    totalHospitalBeds: $('input[data-totalHospitalBeds]').val()
+  };
 
   covid19ImpactEstimator(data);
-})
+});

@@ -36,6 +36,7 @@
             <fieldset>
               <label for="name">Region Name</label>
               <select name="name" id="name" data-name>
+                <option value="">Select region</option>
                 <option value="Africa">Africa</option>
                 <option value="Asia">Asia</option>
                 <option value="Europe">Europe</option>
@@ -49,11 +50,11 @@
             <fieldset>
               <label for="avgDailyIncomeInUSD">Average Daily Income In USD</label>
               <input type="number" data-avgDailyIncomeInUSD name="avgDailyIncomeInUSD" id="avgDailyIncomeInUSD"
-              pattern="[^\-]+" min="1" onpaste="return false" required placeholder="Eg: 5">
+                pattern="[^\-]+" min="1" onpaste="return false" required placeholder="Eg: 5">
             </fieldset>
             <fieldset>
               <label for="avgDailyIncomePopulation">Average daily income population</label>
-              <input type="number" data-avg-daily-income-population name="avgDailyIncomePopulation"
+              <input type="number" data-avgDailyIncomePopulation name="avgDailyIncomePopulation"
                 id="avgDailyIncomePopulation" pattern="[^\-]+" min="1" onpaste="return false" required
                 placeholder="Eg: 0.71">
             </fieldset>
@@ -73,13 +74,13 @@
             </fieldset>
             <fieldset>
               <label for="time-to-elapse">Time to Elapse</label>
-              <input type="number" data-timeToElapse name="time-to-elapse" id="time-to-elapse" pattern="[^\-]+"
-                min="1" onpaste="return false" required>
+              <input type="number" data-timeToElapse name="time-to-elapse" id="time-to-elapse" pattern="[^\-]+" min="1"
+                onpaste="return false" required>
             </fieldset>
             <fieldset>
               <label for="reported-cases">Reported Cases</label>
-              <input type="number" data-reportedCases name="reported-cases" id="reported-cases" pattern="[^\-]+"
-                min="1" onpaste="return false" required>
+              <input type="number" data-reportedCases name="reported-cases" id="reported-cases" pattern="[^\-]+" min="1"
+                onpaste="return false" required>
             </fieldset>
             <fieldset>
               <label for="total-hospital-beds">Total Hospital Beds</label>
