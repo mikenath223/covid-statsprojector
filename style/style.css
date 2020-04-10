@@ -37,6 +37,70 @@ main {
   margin: 100px auto 40px auto;
 }
 
+.results {
+  border: 1px solid #fff;
+  min-height: 500px;
+  margin: 30px;
+}
+
+.data-container {
+  margin: 70px 10px 30px 10px;
+}
+
+.result-container {
+  margin: 20px 10px;
+}
+
+.reg-cont {
+  border: 1px solid silver;
+  padding: 3px;
+}
+
+.results div p span {
+  font-size: 15px;
+}
+
+.results div p span:nth-child(2) {
+  margin-left: 10px;
+  color: #fff;
+}
+
+.reg-desc {
+  background-color: silver;
+  width: max-content;
+  padding: 2px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: rgb(255, 0, 0);
+}
+
+.res__hdata,
+.res__hresult {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.res__hdata {
+  color: #5653D4;
+  background-color: lemonchiffon;
+}
+
+.res__hresult {
+  color: #E60506;
+  background-color: lemonchiffon;
+}
+
+.reg {
+  border-radius: 20px;
+  float: right;
+  margin: 15px;
+  color: #000;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: yellow;
+  padding: 2px 5px;
+}
+
 aside {
   border-right: 1px solid silver;
   width: 45%;
@@ -180,7 +244,7 @@ fieldset:focus-within {
   transition: all 0.15s linear 0s, -webkit-transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
   transition: all 0.15s linear 0s, transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
   transition: all 0.15s linear 0s, transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s, -webkit-transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
-  border: 2px solid ;
+  border: 2px solid;
   border-radius: 50%;
   background-color: var(--currentColor);
   z-index: 3;
