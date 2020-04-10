@@ -346,7 +346,7 @@ fieldset:focus-within {
     width: 240px;
   }
   .cases-data {
-    top: -90%;
+    top: -500px;
   }
   header {
     padding-top: 15px;
