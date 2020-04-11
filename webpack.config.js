@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: './src/dom-manipulate.js',
@@ -13,5 +14,14 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       }
     ]
-  }
+  },
+  plugins: [
+    // New plugin
+    new HtmlWebpackPlugin({
+      // injects bundle.js to our new index.html
+      inject: true,
+      // copys the content of the existing index.html to the new /build index.html
+      template:  path.resolve('./index.html'),
+    }),
+  ]
 };
