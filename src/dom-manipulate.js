@@ -1,3 +1,5 @@
+import '../style/style.css';
+import '../style/Normalize.css';
 import covid19ImpactEstimator from './estimator.js';
 /* global $ */
 
@@ -158,5 +160,3 @@ $('form').submit((e) => {
 $('.reload').click(() => {
   window.location.reload()
 })
-
-export default domManip;

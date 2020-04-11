@@ -1,4 +1,4 @@
-const covid19ImpactEstimator = data => {
+const covid19ImpactEstimator = (data) => {
   const {
     region,
     reportedCases,
@@ -27,18 +27,16 @@ const covid19ImpactEstimator = data => {
   const getDuration = chkDuration(periodType, timeToElapse);
 
   impact.infectionsByRequestedtime = impact.currentlyInfected * getDuration;
-  severeImpact.infectionsByRequestedtime =
-    severeImpact.currentlyInfected * getDuration;
+  severeImpact.infectionsByRequestedtime = severeImpact.currentlyInfected * getDuration;
 
   impact.severeCasesByRequestedTime = impact.infectionsByRequestedtime * 0.15;
-  severeImpact.severeCasesByRequestedTime =
-    severeImpact.infectionsByRequestedtime * 0.15;
+  severeImpact.severeCasesByRequestedTime = severeImpact.infectionsByRequestedtime * 0.15;
 
-  impact.hospitalBedsByRequestedTime =
-    Math.floor(totalHospitalBeds * 0.35) - impact.severeCasesByRequestedTime;
-  severeImpact.hospitalBedsByRequestedTime =
-    Math.floor(totalHospitalBeds * 0.35) -
-    severeImpact.severeCasesByRequestedTime;
+  impact.hospitalBedsByRequestedTime = Math.floor(
+    totalHospitalBeds * 0.35
+  ) - impact.severeCasesByRequestedTime;
+  severeImpact.hospitalBedsByRequestedTime = Math.floor(totalHospitalBeds * 0.35)
+    - severeImpact.severeCasesByRequestedTime;
 
   impact.casesForICUByRequestedTime = Math.floor(
     impact.infectionsByRequestedtime * 0.05
@@ -55,16 +53,16 @@ const covid19ImpactEstimator = data => {
   );
 
   impact.dollarsInFlight = Math.floor(
-    impact.infectionsByRequestedtime *
-      region.avgDailyIncomePopulation *
-      region.avgDailyIncomeInUSD *
-      getDuration
+    impact.infectionsByRequestedtime
+      * region.avgDailyIncomePopulation
+      * region.avgDailyIncomeInUSD
+      * getDuration
   );
   severeImpact.dollarsInFlight = Math.floor(
-    severeImpact.infectionsByRequestedtime *
-      region.avgDailyIncomePopulation *
-      region.avgDailyIncomeInUSD *
-      getDuration
+    severeImpact.infectionsByRequestedtime
+      * region.avgDailyIncomePopulation
+      * region.avgDailyIncomeInUSD
+      * getDuration
   );
   return {
     data,
