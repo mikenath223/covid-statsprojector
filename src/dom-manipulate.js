@@ -1,7 +1,8 @@
+import '../style/style.css';
+import '../style/Normalize.css';
 import covid19ImpactEstimator from './estimator';
 /* global $ */
 
-const domManip = () => {
 const toggleForms = () => {
   $('.region-data').animate({
     left: '150%',
@@ -159,6 +160,5 @@ $('form').submit((e) => {
 $('.reload').click(() => {
   window.location.reload()
 })
-}
 
 export default domManip;
