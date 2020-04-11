@@ -1,6 +1,4 @@
-import '../style/style.css';
-import '../style/Normalize.css';
-import covid19ImpactEstimator from './estimator';
+import covid19ImpactEstimator from './estimator.js';
 /* global $ */
 
 const toggleForms = () => {
