@@ -103,24 +103,21 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const xml = require('xml2js');
 const morgan = require('morgan');
-const fs = require('fs')
-const path = require('path')
+const fs = require('fs');
+const path = require('path');
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 
-let accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
+const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' });
 
-// setup the logger
 app.use(morgan(':method :url :status :response-time ms', { stream: accessLogStream }, {
-  skip: function (req, res) { return res.statusCode < 400 }
-}))
+  skip(req, res) { return res.statusCode < 400; }
+}));
 
 
-// app.get('*', (_req, res) => res.send('Invalid request! Kindly use a post header and send the data in JSON format!'));
 app.post('/api/v1/on-covid-19', (req, res) => {
   const data = req.body;
   res.setHeader('Content-Type', 'application/json');
@@ -199,12 +196,12 @@ app.get('/api/v1/on-covid-19/xml', (req, res) => {
 app.get('/api/v1/on-covid-19/logs', (_req, res) => {
   res.type('application/text');
 
-  var path = process.cwd();
-  var buffer = fs.readFileSync(path + "\\backend\\access.log");
+  const paths = process.cwd();
+  const buffer = fs.readFileSync(`${paths}\\backend\\access.log`);
   res.send(buffer);
 
   res.end();
 });
 
 
-app.listen(process.env.PORT || 3000, () => console.log('Running'));
+app.listen(process.env.PORT || 3000);
