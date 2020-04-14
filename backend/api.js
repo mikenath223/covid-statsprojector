@@ -115,12 +115,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 let accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
 
 // setup the logger
-app.use(morgan(':method :url :status :response-time ms', { stream: accessLogStream },  {
+app.use(morgan(':method :url :status :response-time ms', { stream: accessLogStream }, {
   skip: function (req, res) { return res.statusCode < 400 }
 }))
 
 
-app.get('*', (_req, res) => res.send('Invalid request! Kindly use a post header and send the data in JSON format!'));
+// app.get('*', (_req, res) => res.send('Invalid request! Kindly use a post header and send the data in JSON format!'));
 app.post('/api/v1/on-covid-19', (req, res) => {
   const data = req.body;
   res.setHeader('Content-Type', 'application/json');
@@ -131,7 +131,28 @@ app.post('/api/v1/on-covid-19', (req, res) => {
   res.end();
 });
 
+app.get('/api/v1/on-covid-19', (req, res) => {
+  const data = req.body;
+  res.setHeader('Content-Type', 'application/json');
+
+  const result = covid19ImpactEstimator(data);
+  res.send(JSON.stringify(result));
+
+  res.end();
+});
+
+
 app.post('/api/v1/on-covid-19/json', (req, res) => {
+  const data = req.body;
+  res.setHeader('Content-Type', 'application/json');
+
+  const result = covid19ImpactEstimator(data);
+  res.send(JSON.stringify(result));
+
+  res.end();
+});
+
+app.get('/api/v1/on-covid-19/json', (req, res) => {
   const data = req.body;
   res.setHeader('Content-Type', 'application/json');
 
@@ -157,5 +178,33 @@ app.post('/api/v1/on-covid-19/xml', (req, res) => {
   ));
   res.end();
 });
+
+app.get('/api/v1/on-covid-19/xml', (req, res) => {
+  const data = req.body;
+  res.type('application/xml');
+
+  const result = covid19ImpactEstimator(data);
+
+  const builder = new xml.Builder({
+    renderOpts: { pretty: false }
+  });
+
+  res.send(builder.buildObject(
+    result
+  ));
+  res.end();
+});
+
+
+app.get('/api/v1/on-covid-19/logs', (_req, res) => {
+  res.type('application/text');
+
+  var path = process.cwd();
+  var buffer = fs.readFileSync(path + "\\backend\\access.log");
+  res.send(buffer);
+
+  res.end();
+});
+
 
 app.listen(process.env.PORT || 3000, () => console.log('Running'));

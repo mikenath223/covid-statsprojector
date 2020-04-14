@@ -5,7 +5,8 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "lint": "eslint ./src/"
+    "lint": "eslint ./src/",
+    "start": "node ./backend/api.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
