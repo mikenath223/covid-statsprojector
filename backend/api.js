@@ -1,3 +1,4 @@
+
 const covid19ImpactEstimator = (data) => {
   const {
     region,
@@ -98,4 +99,109 @@ const covid19ImpactEstimator = (data) => {
   };
 };
 
-export default covid19ImpactEstimator;
+const express = require('express');
+const bodyParser = require('body-parser');
+const xml = require('xml2js');
+const morgan = require('morgan');
+const fs = require('fs');
+const path = require('path');
+
+const app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' });
+
+app.use(morgan(':method :url :status :response-time ms', { stream: accessLogStream }, {
+  skip(req, res) { return res.statusCode < 400; }
+}));
+
+
+app.post('/api/v1/on-covid-19', (req, res) => {
+  const data = req.body;
+  res.setHeader('Content-Type', 'application/json');
+
+  const result = covid19ImpactEstimator(data);
+  res.send(JSON.stringify(result));
+
+  res.end();
+});
+
+app.get('/api/v1/on-covid-19', (req, res) => {
+  const data = req.body;
+  res.setHeader('Content-Type', 'application/json');
+
+  const result = covid19ImpactEstimator(data);
+  res.send(JSON.stringify(result));
+
+  res.end();
+});
+
+
+app.post('/api/v1/on-covid-19/json', (req, res) => {
+  const data = req.body;
+  res.setHeader('Content-Type', 'application/json');
+
+  const result = covid19ImpactEstimator(data);
+  res.send(JSON.stringify(result));
+
+  res.end();
+});
+
+app.get('/api/v1/on-covid-19/json', (req, res) => {
+  const data = req.body;
+  res.setHeader('Content-Type', 'application/json');
+
+  const result = covid19ImpactEstimator(data);
+  res.send(JSON.stringify(result));
+
+  res.end();
+});
+
+
+app.post('/api/v1/on-covid-19/xml', (req, res) => {
+  const data = req.body;
+  res.type('application/xml');
+
+  const result = covid19ImpactEstimator(data);
+
+  const builder = new xml.Builder({
+    renderOpts: { pretty: false }
+  });
+
+  res.send(builder.buildObject(
+    result
+  ));
+  res.end();
+});
+
+app.get('/api/v1/on-covid-19/xml', (req, res) => {
+  const data = req.body;
+  res.type('application/xml');
+
+  const result = covid19ImpactEstimator(data);
+
+  const builder = new xml.Builder({
+    renderOpts: { pretty: false }
+  });
+
+  res.send(builder.buildObject(
+    result
+  ));
+  res.end();
+});
+
+
+app.get('/api/v1/on-covid-19/logs', (_req, res) => {
+  res.type('application/text');
+
+  const paths = process.cwd();
+  const buffer = fs.readFileSync(`${paths}\\backend\\access.log`);
+  res.send(buffer);
+
+  res.end();
+});
+
+
+app.listen(process.env.PORT || 3000);

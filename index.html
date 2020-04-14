@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description"
+    content="A covid-19 web app that estimates the impact and severe impact of covid-19 in various geo-locations.">
+    <link rel="stylesheet" href="/minified/minify.css">
+  <title>covid-19-estimator | An estimator for covid-19 impact</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <h1>covid-19 Stats Projector</h1>
+    </nav>
+  </header>
+  <main>
+    <section class="form-container">
+      <aside>
+        <div class="data-main-cont">
+          <span class="reg">Africa</span>
+          <div class="data-container">
+            <h3 class="res__hdata">DATA INPUT</h3>
+            <div class="reg-cont">
+              <p class="desc reg-desc">Region Info</p>
+              <p class="marg-top"><span>Average Age</span> <span class="avgAge">19.7</span></p>
+              <p><span>Average Daily Income In USD</span> <span class="avgDailyIncomeInUSD">19.7</span></p>
+              <p><span>Average Daily Income Population</span> <span class="avgDailyIncomePopulation">19.7</span></p>
+            </div>
+            <p><span>Period Type</span> <span class="periodType">19.7</span></p>
+            <p><span>Time To Elapse</span> <span class="timeToElapse">19.7</span></p>
+            <p><span>Reported Cases</span> <span class="reportedCases">19.7</span></p>
+            <p><span>Population</span> <span class="population">19.7</span></p>
+            <p><span>Total Hospital Beds</span> <span class="totalHospitalBeds">19.7</span></p>
+          </div>
+          <hr>
+          <button type="button" class="reload">BACK</button>
+        </div>
+        <h1>Welcome</h1>
+        <h4>Kindly input your data.</h4>
+      </aside>
+      <section class="data-display">
+        <div class="results">
+          <div class="result-container">
+            <h3 class="res__hresult">RESULTS</h4>
+              <div class="impact-cont">
+                <p class="desc imp-desc">Impact</p>
+                <p class="marg-top"><span>Currently Infected</span> <span class="currentlyInfected">19.7</span></p>
+                <p><span>Infections By Requested Time</span> <span class="infectionsByRequestedtime">19.7</span></p>
+                <p><span>Severe Cases By Requested Time</span> <span class="severeCasesByRequestedTime">19.7</span></p>
+                <p><span>Hospital Beds By Requested Time</span> <span class="hospitalBedsByRequestedTime">19.7</span>
+                </p>
+                <p><span>Cases For ICU By Requested Time</span> <span class="casesForICUByRequestedTime">19.7</span></p>
+                <p><span>Cases For Ventilators By Requested Time</span> <span
+                    class="casesForVentilatorsByRequestedTime">19.7</span></p>
+                <p><span>Dollars In Flight</span> <span class="dollarsInFlight">19.7</span></p>
+              </div>
+              <div class="severe-impact-cont">
+                <p class="desc sev-imp-desc">Severe Impact</p>
+                <p class="marg-top"><span>Currently Infected</span> <span class="currentlyInfected">19.7</span></p>
+                <p><span>Infections By Requested Time</span> <span class="infectionsByRequestedtime">19.7</span></p>
+                <p><span>Severe Cases By Requested Time</span> <span class="severeCasesByRequestedTime">19.7</span></p>
+                <p><span>Hospital Beds By Requested Time</span> <span class="hospitalBedsByRequestedTime">19.7</span>
+                </p>
+                <p><span>Cases For ICU By Requested Time</span> <span class="casesForICUByRequestedTime">19.7</span></p>
+                <p><span>Cases For Ventilators By Requested Time</span> <span
+                    class="casesForVentilatorsByRequestedTime">19.7</span></p>
+                <p><span>Dollars In Flight</span> <span class="dollarsInFlight">19.7</span></p>
+              </div>
+          </div>
+        </div>
+        <div class="steps-shift">
+          <button class="multisteps-form__progress-btn js-active" type="button" title="Region Info">Region Info</button>
+          <button class="multisteps-form__progress-btn" type="button" title="Cases Info">Cases Info</button>
+        </div>
+
+        <form action="/" method="post">
+          <div class="region-data">
+            <fieldset>
+              <label for="name">Region Name</label>
+              <select name="name" id="name" data-name>
+                <option value="">Select region</option>
+                <option value="Africa">Africa</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="North America">North America</option>
+                <option value="Central America">Central America</option>
+                <option value="South America">South America</option>
+                <option value="The Caribbean">The Caribbean</option>
+                <option value="Oceania">Oceania</option>
+              </select>
+            </fieldset>
+            <fieldset>
+              <label for="avgDailyIncomeInUSD">Average Daily Income In USD</label>
+              <input type="number" data-avgDailyIncomeInUSD name="avgDailyIncomeInUSD" id="avgDailyIncomeInUSD"
+                pattern="[^\-]+" min="1" onpaste="return false" required placeholder="Eg: 5">
+            </fieldset>
+            <fieldset>
+              <label for="avgDailyIncomePopulation">Average daily income population</label>
+              <input type="number" data-avgDailyIncomePopulation name="avgDailyIncomePopulation"
+                id="avgDailyIncomePopulation" pattern="[^\-]+" min="1" onpaste="return false" required
+                placeholder="Eg: 0.71">
+            </fieldset>
+            <fieldset>
+              <label for="avgAge">Average Age</label>
+              <input type="number" data-avgAge name="avgAge" id="avgAge" pattern="[\d]{3}" min="1" maxlength="3"
+                max="120" onpaste="return false" required placeholder="Eg: 19.7">
+            </fieldset>
+            <button type="button" class="step-but">Next</button>
+          </div>
+
+          <div class="cases-data">
+            <fieldset>
+              <label for="population">Population</label>
+              <input type="number" data-population name="population" id="population" pattern="[^\-]+" min="1"
+                onpaste="return false" required>
+            </fieldset>
+            <fieldset>
+              <label for="time-to-elapse">Time to Elapse</label>
+              <input type="number" data-time-to-elapse name="time-to-elapse" id="time-to-elapse" pattern="[^\-]+" min="1"
+                onpaste="return false" required>
+            </fieldset>
+            <fieldset>
+              <label for="reported-cases">Reported Cases</label>
+              <input type="number" data-reported-cases name="reported-cases" id="reported-cases" pattern="[^\-]+" min="1"
+                onpaste="return false" required>
+            </fieldset>
+            <fieldset>
+              <label for="total-hospital-beds">Total Hospital Beds</label>
+              <input type="number" data-total-hospital-beds name="total-hospital-beds" id="total-hospital-beds"
+                pattern="[^\-]+" min="1" onpaste="return false" required>
+            </fieldset>
+            <fieldset>
+              <label for="period-type">Period Type</label>
+              <select name="period-type" id="period-type" data-period-type>
+                <option value="days">Days</option>
+                <option value="weeks">Weeks</option>
+                <option value="months">Months</option>
+              </select>
+            </fieldset>
+            <input type="submit" value="SUBMIT" data-go-estimate>
+          </div>
+        </form>
+      </section>
+    </section>
+  </main>
+  <script src="minified/minify.js"></script>
+</body>
+
+</html>
