@@ -39,7 +39,6 @@ main {
 }
 
 .results {
-  border: 1px solid #fff;
   min-height: 500px;
   margin: 30px;
   display: none;
@@ -58,9 +57,7 @@ main {
   margin: 20px 10px;
 }
 
-.reg-cont,
-.severe-impact-cont,
-.impact-cont {
+.reg-cont, .severe-impact-cont, .impact-cont {
   border: 1px solid silver;
   padding: 3px;
 }
@@ -73,8 +70,7 @@ main {
   font-size: 15px;
 }
 
-.results div p span:nth-child(2),
-.data-container p span:nth-child(2) {
+.results div p span:nth-child(2), .data-container p span:nth-child(2) {
   margin-left: 10px;
   color: #fff;
 }
@@ -105,8 +101,7 @@ main {
   background-color: rgb(255, 0, 0);
 }
 
-.res__hdata,
-.res__hresult {
+.res__hdata, .res__hresult {
   margin-bottom: 10px;
   text-align: center;
 }
@@ -165,6 +160,7 @@ form {
   margin: 20px auto;
   height: 70vh;
   overflow: hidden;
+  position: relative;
 }
 
 .form-container section {
@@ -208,9 +204,7 @@ fieldset:focus-within {
   border-radius: 10px;
 }
 
-.form-container input[data-go-estimate],
-.step-but,
-.reload {
+.form-container input[data-go-estimate], .step-but, .reload {
   background-color: #d76916;
   border: none;
   width: 160px;
@@ -222,19 +216,21 @@ fieldset:focus-within {
   font-size: 23px;
 }
 
+.region-data, .cases-data {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .cases-data {
   opacity: 0;
-  position: relative;
-  top: -85%;
-  left: 150%;
 }
 
 .region-data {
-  position: relative;
+  z-index: 50;
 }
 
-.step-but,
-.reload {
+.step-but, .reload {
   color: #fff;
   background-color: #007bff;
 }
@@ -275,15 +271,10 @@ fieldset:focus-within {
   content: '';
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  -webkit-transition: all 0.15s linear 0s,
-    -webkit-transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
-  transition: all 0.15s linear 0s,
-    -webkit-transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
-  transition: all 0.15s linear 0s,
-    transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
-  transition: all 0.15s linear 0s,
-    transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s,
-    -webkit-transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
+  -webkit-transition: all 0.15s linear 0s, -webkit-transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
+  transition: all 0.15s linear 0s, -webkit-transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
+  transition: all 0.15s linear 0s, transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
+  transition: all 0.15s linear 0s, transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s, -webkit-transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
   border: 2px solid;
   border-radius: 50%;
   background-color: var(--currentColor);
@@ -356,9 +347,6 @@ fieldset:focus-within {
   }
   form fieldset input {
     width: 240px;
-  }
-  .cases-data {
-    top: -500px;
   }
   header {
     padding-top: 15px;

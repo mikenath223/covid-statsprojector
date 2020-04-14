@@ -5,11 +5,11 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "lint": "eslint ./src/",
-    "build": "webpack -p"
+    "lint": "eslint ./src/"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
+    "express": "^4.17.1",
     "on-covid-19": "^0.1.3"
   },
   "devDependencies": {
@@ -20,7 +20,6 @@
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.20.1",
-    "html-webpack-plugin": "^4.2.0",
     "jest": "^25.2.0",
     "style-loader": "^1.1.3",
     "webpack": "^4.42.1",
